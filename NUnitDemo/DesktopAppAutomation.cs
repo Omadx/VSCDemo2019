@@ -48,6 +48,7 @@ namespace NUnitDemo
             WindowsElement CancelButton = DesktopSession.FindElementByAccessibilityId("2");
             CancelButton.Click();
             Assert.AreEqual("Hello QA Engineers", NotepadTextArea.Text);
+            Console.WriteLine("Todo correcto!!!");
         }
 
 
