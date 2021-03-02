@@ -52,9 +52,19 @@ namespace NUnitDemo
         }
 
 
+        //[Test]
+        //public void CloseNote()
+        //{
+        //    WindowsElement PanelClose = DesktopSession.FindElementByName("Bloc de notas");
+        //    PanelClose.Click();
+        //    WindowsElement NoButton = DesktopSession.FindElementByName("No guardar");
+        //    NoButton.Click();
+        //}
+
         [TearDown]
         public void Close()
         {
+
             DesktopSession.CloseApp();
         }
     }
