@@ -21,14 +21,14 @@ namespace NUnitDemo
             DesktopSession = new WindowsDriver<WindowsElement>(new Uri(DriverUrl), Options);
             Assert.IsNotNull(DesktopSession);
         }
-        [Test]
+        [Test, Order(1)]
         public void HelloNotepad()
         {
             WindowsElement NotepadTextArea = DesktopSession.FindElementByAccessibilityId("15");
             NotepadTextArea.SendKeys("Hello World");
         }
 
-        [Test]
+        [Test, Order(2)]
         public void ReplaceWorld()
         {
             WindowsElement NotepadTextArea = DesktopSession.FindElementByAccessibilityId("15");
@@ -51,6 +51,19 @@ namespace NUnitDemo
             Console.WriteLine("Todo correcto!!!");
         }
 
+        [Test, Order(3)]
+        public void EnterTimeAndDataTest()
+        {
+            WindowsElement EditButton = DesktopSession.FindElementByName("Edición");
+            EditButton.Click();
+            WindowsElement GetDate = DesktopSession.FindElementByAccessibilityId("26");
+            GetDate.Click();
+            string value = DesktopSession.FindElementByName("Editor de texto").GetAttribute("Value.Value");
+            Console.WriteLine(value);
+            Assert.IsTrue(value.Contains("2021"));
+            Console.WriteLine("Test Completed!!!");
+        }
+
 
         //[Test]
         //public void CloseNote()
@@ -64,7 +77,6 @@ namespace NUnitDemo
         [TearDown]
         public void Close()
         {
-
             DesktopSession.CloseApp();
         }
     }

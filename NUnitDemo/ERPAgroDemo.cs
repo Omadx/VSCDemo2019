@@ -11,7 +11,7 @@ namespace NUnitDemo
     public class ERPAgroDemo
     {
         public const string DriverUrl = "http://127.0.0.1:4723/";
-        public WindowsDriver<WindowsElement> DesktopSession;
+        public WindowsDriver<WindowsElement> DesktopSession2;
 
         [SetUp]
         public void Setup()
@@ -19,8 +19,8 @@ namespace NUnitDemo
             AppiumOptions Options = new AppiumOptions();
             Options.AddAdditionalCapability("app", "C:\\Hispatec\\ERPagro\\ERPCerco.exe");
             Options.AddAdditionalCapability("deviceName", "WindowsPc");
-            DesktopSession = new WindowsDriver<WindowsElement>(new Uri(DriverUrl), Options);
-            Assert.IsNotNull(DesktopSession);
+            DesktopSession2 = new WindowsDriver<WindowsElement>(new Uri(DriverUrl), Options);
+            Assert.IsNotNull(DesktopSession2);
             Thread.Sleep(5000);
             //DesktopSession.CloseApp();
         }
@@ -34,24 +34,25 @@ namespace NUnitDemo
         //    Assert.IsNotNull(DesktopSession);
         //}
 
-        //[Test]
-        //public void ButtonPagos()
-        //{
-        //    WindowsElement PagosB = DesktopSession.FindElementByName("Pagos");
-        //    PagosB.Click();
-        //}b
         [Test]
-        public void HelloERPAgro()
+        public void ButtonPagos()
         {
-            //WindowsElement PagosB = DesktopSession.FindElementByName("Cancelar");
-            //PagosB.Click();
-            Console.WriteLine("Test Completed!!!!");
+            Console.WriteLine("Test Completed!!!");
         }
+        //[Test]
+        //public void HelloERPAgro()
+        //{
+        //    WindowsElement PagosA = DesktopSession2.FindElementByAccessibilityId("panel1");
+        //    PagosA.Click();
+        //    WindowsElement PagosB = DesktopSession2.FindElementByAccessibilityId("btnAceptar");
+        //    PagosB.Click();
+        //    Console.WriteLine(" ");
+        //}
         [TearDown]
         public void Close()
         {
             Console.WriteLine("Test Completed2!!!!");
-            //Thread.Sleep(5000);
+            Thread.Sleep(5000);
             //DesktopSession.CloseApp();
         }
     }
